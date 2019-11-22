@@ -1,0 +1,4 @@
+runtime: python37
+handlers:
+- url: /main
+  script: main.py

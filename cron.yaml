@@ -1,0 +1,4 @@
+cron:
+- description: "adds links to terminology in notion text"
+  url: /main
+  schedule: every 24 hours 01:00
