@@ -28,7 +28,9 @@ def fetch_remote_snapshot(client: NotionClient) -> List[Snapshot]:
     ids = table.views[0].get()['page_sort']
     rows = []
     for id in ids: 
-        rows.append(client.get_block(id))
+        block = client.get_block(id)
+        if block is not None:
+            rows.append(block)
     
     snapshots = []
     for row in rows:
