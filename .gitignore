@@ -1,2 +1,3 @@
 *.pyc
 app.yaml
+local_snapshot.txt
