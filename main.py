@@ -10,8 +10,6 @@ import snapshot
 client = NotionClient(token_v2=os.getenv('NOTION_MIKAN_TOKEN'))
 
 remote_snapshot = snapshot.fetch_remote_snapshot(client)
-for r in remote_snapshot:
-    print(r.__dict__)
 local_snapshot = snapshot.fetch_local_snapshot()
 to_add, to_replace, to_remove = converter.from_snapshot(local_snapshot, remote_snapshot)
 
