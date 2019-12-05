@@ -6,10 +6,10 @@ from add_link import TermToAdd
 class AddLinkTest(unittest.TestCase):
     def test_basic(self):
         result = add_links(
-            "単語",
-            [TermToAdd("link", "単語")]
+            "word",
+            [TermToAdd("link", "word")]
         )
-        self.assertEqual("[単語](link)", result)
+        self.assertEqual("[word](link)", result)
     
     def test_multiple_terms(self):
         result = add_links(
@@ -42,9 +42,10 @@ class AddLinkTest(unittest.TestCase):
         self.assertEqual("[a 単語 in](link)", result)
 
     # []()の()のところをマッチするRegex書けなかった。
-    # なので英語の用語は省く。じゃないとリンクの中にリンクが埋め込まれる。
+    # なのでカッコは省く。じゃないとリンクの中にリンクが埋め込まれる。
     # やりたかったけどできなかったこと：']('と')'の間にあるマッチ
-    # '('と')'の間のマッチは取れるが、それだと普通の文章中のカッコと被る 
+    # '('と')'の間のマッチは取れるが、それだと普通の文章中のカッコと被る 。
+    # 英語がないよりはカッコ内の単語が翻訳されない方がマシ
     def test_english(self):
         result = add_links(
             "[english](english url)",

@@ -16,6 +16,6 @@ def add_links(content: str, terminology: List[TermToAdd]) -> str:
     return content
 
 def _replace_link(content: str, term: TermToAdd) -> str:
-    regex = term.term + r'(?![^\[]*\]\()'
+    regex = term.term + r'(?![^\(]*\)|[^\[]*\]\()'
     link = '[' + term.term + '](' + term.link + ')'
     return re.sub(regex, link, content)
